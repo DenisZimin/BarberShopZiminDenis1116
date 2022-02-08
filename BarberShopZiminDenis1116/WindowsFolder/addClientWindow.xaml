@@ -21,17 +21,7 @@
             <ColumnDefinition Width="118*"/>
         </Grid.ColumnDefinitions>
 
-
-
-
-
-
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="7" Margin="0,0,-0.222,0.111"/>
-
-
-
-
-
 
         <TextBlock Text="Добавление клиента" VerticalAlignment="Center" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" FontSize="24" FontFamily="Tahoma" Foreground="White" Height="36" Width="230">
@@ -73,15 +63,15 @@
 
 
 
-
-
-
         <TextBox Grid.Row="1" Grid.Column="1" Width="150" HorizontalAlignment="Left" Margin="5.222,20.556,0,19.889" x:Name="tbLastNameClient" MaxLength="100">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="2" Grid.Column="1" Width="150" HorizontalAlignment="Left" Margin="5.222,20.111,0,20.333" x:Name="tbFirstNameClient" MaxLength="100">
             <TextBox.Resources>
@@ -89,6 +79,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="3" Grid.Column="1" Width="150" HorizontalAlignment="Left" Margin="5.222,20.667,0,19.778" x:Name="tbMiddleNameClient" MaxLength="100">
             <TextBox.Resources>
@@ -96,6 +89,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="4" Grid.Column="1" Width="150" HorizontalAlignment="Left" Margin="5.222,20.222,0,20.222" x:Name="tbPhoneClient" MaxLength="15" TextChanged="tbPhoneClient_TextChanged">
             <TextBox.Resources>
@@ -103,6 +99,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="5" Grid.Column="1" Width="150" HorizontalAlignment="Left" Margin="5.222,19.778,0,20.667" x:Name="tbEmailClient" MaxLength="100" TextChanged="tbEmailClient_TextChanged">
             <TextBox.Resources>
@@ -110,12 +109,12 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
 
-
-
-
-
+        
         <Button Grid.Row="6" Content="Добавить" FontFamily="Tahoma" Grid.Column="1" Margin="20.222,10.397,110.556,20.048" x:Name="btnAddClient" Click="btnAddClient_Click"
                 Background="#FFBDFFB7">
             <Button.Resources>
@@ -123,6 +122,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </Button.Effect>
         </Button>
 
 
@@ -137,6 +139,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </Button.Effect>
         </Button>
 
     </Grid>

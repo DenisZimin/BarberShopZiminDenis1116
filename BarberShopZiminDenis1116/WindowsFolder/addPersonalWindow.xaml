@@ -106,6 +106,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="2" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                  Margin="5.222,19.889,0,20.667" x:Name="tbFirstNamePersonal" MaxLength="100">
@@ -114,6 +117,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="3" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                  Margin="5.222,20.333,0,20.222" x:Name="tbMiddleNamePersonal" MaxLength="100">
@@ -122,6 +128,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="4" Grid.Column="1" Width="150" HorizontalAlignment="Left"
                  Margin="5.222,19.778,0,20.576" x:Name="tbPhonePersonal" MaxLength="15" TextChanged="tbPhonePersonal_TextChanged">
@@ -130,6 +139,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="5" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                  Margin="5.222,19.424,0,20.929" x:Name="tbEmailPersonal" MaxLength="100">
@@ -138,6 +150,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <ComboBox Grid.Row="6" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                   Margin="5.222,20.071,0,20.485" x:Name="cmbPostPerson" FontSize="10">
@@ -146,6 +161,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </ComboBox.Resources>
+            <ComboBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </ComboBox.Effect>
         </ComboBox>
         <ComboBox Grid.Row="7" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                   Margin="5.222,19.515,0,21.04" x:Name="cmbWorkTimePerson" FontSize="10">
@@ -154,6 +172,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </ComboBox.Resources>
+            <ComboBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </ComboBox.Effect>
         </ComboBox>
         <TextBox Grid.Row="8" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                  Margin="5.222,19.96,0,20.596" x:Name="tbLoginPersonal" MaxLength="100">
@@ -162,6 +183,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="9" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                  Margin="5.222,4.444,0,6.444" x:Name="tbPassPersonal" MaxLength="100">
@@ -170,6 +194,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
         <TextBox Grid.Row="10" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
                  Margin="5.222,4.444,0,6.444" x:Name="tbPassConfirmPersonal" MaxLength="100">
@@ -178,6 +205,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </TextBox.Resources>
+            <TextBox.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBox.Effect>
         </TextBox>
 
         <Button Grid.Row="11" Content="Добавить" FontFamily="Tahoma" Grid.Column="1" 
@@ -187,6 +217,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </Button.Effect>
         </Button>
 
         <Button Grid.Column="1" Margin="174.556,3,3.556,43.556" x:Name="btnExitAddPerWindow"
@@ -196,6 +229,9 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </Button.Effect>
         </Button>
 
     </Grid>
