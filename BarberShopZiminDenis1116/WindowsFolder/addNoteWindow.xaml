@@ -1,0 +1,150 @@
+﻿<Window x:Class="BarberShopZiminDenis1116.WindowsFolder.addNoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShopZiminDenis1116.WindowsFolder"
+        mc:Ignorable="d"
+        Title="Добавление записи" Height="320" Width="350"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/ResoursesFolder/ФонБезЛиний.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="9"/>
+
+        <TextBlock Text="Добавление записи" VerticalAlignment="Center" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" FontSize="20" FontFamily="Tahoma" Foreground="White">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <TextBlock Text="Услуга" Grid.Row="1" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Клиент" Grid.Row="2" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Персонал" Grid.Row="3" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Дата регистрации записи" Grid.Row="4" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Уточнение" Grid.Row="5" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Дата начала услуги" Grid.Row="6" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Дата окончания услуги" Grid.Row="7" HorizontalAlignment="Right" Foreground="White"
+                   VerticalAlignment="Center" FontSize="10" Margin="0 0 5 0">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+
+
+        <ComboBox x:Name="cmbFKService" Grid.Row="1" Grid.Column="1" Width="200" Height="20" HorizontalAlignment="Left" FontSize="10">
+            <ComboBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
+        <ComboBox x:Name="cmbFKClient" Grid.Row="2" Grid.Column="1" Width="200" Height="20" HorizontalAlignment="Left" FontSize="10">
+            <ComboBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
+        <ComboBox x:Name="cmbFKPeronal" Grid.Row="3" Grid.Column="1" Width="200" Height="20" HorizontalAlignment="Left" FontSize="10">
+            <ComboBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
+        <TextBox x:Name="tbDateRegister" Grid.Row="4" Grid.Column="1" Width="150" Height="20" HorizontalAlignment="Left" FontSize="13" MaxLength="50">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox x:Name="tbComment" Grid.Row="5" Grid.Column="1" Width="150" Height="20" HorizontalAlignment="Left" FontSize="13" MaxLength="50">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox x:Name="tbStartDate" Grid.Row="6" Grid.Column="1" Width="150" Height="20" HorizontalAlignment="Left" FontSize="13" MaxLength="50">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox x:Name="tbFinalDate" Grid.Row="7" Grid.Column="1" Width="150" Height="20" HorizontalAlignment="Left" FontSize="13" MaxLength="50">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Button x:Name="btnAddNote" Grid.ColumnSpan="2" Grid.Row="8" Width="100" Height="20" Content="Добавить" Click="btnAddNote_Click" Background="#FFBDFFB7">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Column="1" Margin="162,0,2.778,15.062" x:Name="btnExitNoteWindow"
+                Click="btnExitNoteWindow_Click"  Content="Закрыть" FontSize="8" Height="17" VerticalAlignment="Bottom" 
+                Background="#FFFFA6A6">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>

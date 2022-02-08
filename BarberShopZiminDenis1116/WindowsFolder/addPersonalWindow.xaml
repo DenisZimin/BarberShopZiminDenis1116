@@ -1,0 +1,202 @@
+﻿<Window x:Class="BarberShopZiminDenis1116.WindowsFolder.addPersonalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShopZiminDenis1116.WindowsFolder"
+        mc:Ignorable="d"
+        Title="Добавление сотрудника" Height="700" Width="320" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="59*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="118*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/ResoursesFolder/ФонБезЛиний.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="12" Margin="0,0,-0.444,0.302"/>
+
+        <TextBlock Text="Добавление сотрудника" VerticalAlignment="Center" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" FontSize="20" FontFamily="Tahoma" Foreground="White" Height="30" Width="270" Margin="53,16,-7.444,17.556">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="3" BlurRadius="10"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <TextBlock Text="Фамилия" VerticalAlignment="Center" Margin="0,21.444,4.778,20.111" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="1" Height="18" Width="62">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Имя" VerticalAlignment="Center" Margin="0,20.889,4.778,20.667" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="2" Height="18" Width="28">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Отчество" VerticalAlignment="Center" Margin="0,20.333,4.778,20.222"
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="3" Height="19" Width="64">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Телефон" VerticalAlignment="Center" Margin="0,20.778,4.778,20.576" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="4" Height="18" Width="61">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Почта" VerticalAlignment="Center" Margin="0,20.424,4.778,19.929" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="5" Height="19" Width="42">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Должность" VerticalAlignment="Center" Margin="0,21.071,4.778,19.485" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="6" Height="19" Width="76">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Время работы" VerticalAlignment="Center" Margin="0,20.515,4.778,20.04" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="7" Height="19" Width="42">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Логин" VerticalAlignment="Center" Margin="0,19.96,4.778,20.596" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="8" Height="19" Width="42">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Пароль" VerticalAlignment="Center" Margin="0,3.444,4.778,6.444" 
+                   HorizontalAlignment="Right" FontSize="15" FontFamily="Tahoma" Foreground="White" Grid.Row="9" Height="19" Width="51">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="Подтвердите пароль" VerticalAlignment="Center" Margin="0,9.556,4.778,6.222" 
+                   HorizontalAlignment="Right" FontSize="9" FontFamily="Tahoma" Foreground="White" Grid.Row="10" Height="14" Width="86">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+
+
+
+        <TextBox Grid.Row="1" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,20.444,0,20.111" x:Name="tbLastNamePersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,19.889,0,20.667" x:Name="tbFirstNamePersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,20.333,0,20.222" x:Name="tbMiddleNamePersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="150" HorizontalAlignment="Left"
+                 Margin="5.222,19.778,0,20.576" x:Name="tbPhonePersonal" MaxLength="15" TextChanged="tbPhonePersonal_TextChanged">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox Grid.Row="5" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,19.424,0,20.929" x:Name="tbEmailPersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <ComboBox Grid.Row="6" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                  Margin="5.222,20.071,0,20.485" x:Name="cmbPostPerson" FontSize="10">
+            <ComboBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
+        <ComboBox Grid.Row="7" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                  Margin="5.222,19.515,0,21.04" x:Name="cmbWorkTimePerson" FontSize="10">
+            <ComboBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
+        <TextBox Grid.Row="8" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,19.96,0,20.596" x:Name="tbLoginPersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox Grid.Row="9" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,4.444,0,6.444" x:Name="tbPassPersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox Grid.Row="10" Grid.Column="1" Width="150" HorizontalAlignment="Left" 
+                 Margin="5.222,4.444,0,6.444" x:Name="tbPassConfirmPersonal" MaxLength="100">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Button Grid.Row="11" Content="Добавить" FontFamily="Tahoma" Grid.Column="1" 
+                Margin="8.222,15.051,122.556,14.302" x:Name="btnAddPersonal" Click="btnAddPersonal_Click" Background="#FFBDFFB7">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Column="1" Margin="174.556,3,3.556,43.556" x:Name="btnExitAddPerWindow"
+                Click="btnExitAddPerWindow_Click" Content="Закрыть" FontSize="6" Background="#FFFFA6A6">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>

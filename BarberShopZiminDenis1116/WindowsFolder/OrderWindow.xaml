@@ -1,0 +1,89 @@
+﻿<Window x:Class="BarberShopZiminDenis1116.WindowsFolder.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BarberShopZiminDenis1116.WindowsFolder"
+        mc:Ignorable="d"
+        Title="Данные - заказы" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!--Фон-->
+            <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.RowSpan="3" Stretch="Fill"/>
+            <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="4" Stretch="Fill"/>
+
+        <!--Заголовок-->
+        <TextBlock Text="Список заказов" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" FontSize="30" FontFamily="Tahoma" Foreground="White">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <!--Данные базы-->
+        <ListView x:Name="lvOrders" 
+                  Grid.Row="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idNote}"/>
+                    <GridViewColumn Header="Услуга" Width="150" DisplayMemberBinding="{Binding Service.ServiceName}"/>
+                    <GridViewColumn Header="Клиент" Width="80" DisplayMemberBinding="{Binding Client.FirstName}"/>
+                    <GridViewColumn Header="Сотрудник" Width="80" DisplayMemberBinding="{Binding Personal.FirstName}"/>
+                    <GridViewColumn Header="Дата регистрации" Width="200" DisplayMemberBinding="{Binding NateDate}"/>
+                    <GridViewColumn Header="Уточнение" Width="150" DisplayMemberBinding="{Binding Comment}"/>
+                    <GridViewColumn Header="Дата оказания услуги" Width="150" DisplayMemberBinding="{Binding DateStart}"/>
+                    <GridViewColumn Header="Дата завершения услуги" Width="150" DisplayMemberBinding="{Binding DataFinish}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Width="60" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0 5 5 0" x:Name="btnExitORDWIN" Click="btnExitORDWIN_Click" Content="Выход"
+                Background="#FFFFA6A6">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--Линия навигации-->
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center">
+            <TextBlock Text="Поиск:" Margin="5 0" Foreground="White" Grid.Row="2" VerticalAlignment="Center"/>
+
+            <TextBox Margin="0 0 0 0" Width="100" x:Name="txtSearchOrders" 
+                     TextChanged="txtSearchOrders_TextChanged">
+                <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <ComboBox Margin="5 0" x:Name="cmbSortOrders" Width="150" 
+                      SelectionChanged="cmbSortOrders_SelectionChanged">
+                <ComboBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </ComboBox.Resources>
+            </ComboBox>
+
+            <Button Margin="0 0 0 0" Content="Добавить" x:Name="btnAddNotes" Click="btnAddNotes_Click">
+                <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+        
+    </Grid>
+</Window>
