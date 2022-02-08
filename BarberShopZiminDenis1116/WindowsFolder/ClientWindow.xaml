@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShopZiminDenis1116.WindowsFolder"
         mc:Ignorable="d"
-        Title="Данные - клиент" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Данные - клиент" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+         WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="12*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
@@ -50,17 +51,27 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </Button.Effect>
         </Button>
 
         <!--Линия навигации-->
         <WrapPanel Grid.Row="2" VerticalAlignment="Center">
-            <TextBlock Text="Поиск:" Margin="5 0" Foreground="White" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBlock Text="Поиск:" Margin="5 0" Foreground="White" Grid.Row="2" VerticalAlignment="Center">
+                <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+            </TextBlock.Effect>
+            </TextBlock>
             <TextBox Margin="0 0 0 0" Width="100" x:Name="txtSearchClient" TextChanged="txtSearchClient_TextChanged">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </TextBox.Resources>
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+                </TextBox.Effect>
             </TextBox>
 
             <ComboBox Margin="5 0" x:Name="cmbSortClient" Width="150" SelectionChanged="cmbSortClient_SelectionChanged">
@@ -69,6 +80,9 @@
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </ComboBox.Resources>
+                <ComboBox.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+                </ComboBox.Effect>
             </ComboBox>
 
             <Button Margin="0 0 0 0" Content="Добавить" x:Name="btnAddClient" Click="btnAddClient_Click">
@@ -77,6 +91,9 @@
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.6"/>
+                </Button.Effect>
             </Button>
 
             
