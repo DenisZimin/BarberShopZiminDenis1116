@@ -76,7 +76,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
 
             if (listClients.Count==0)
             {
-                MessageBox.Show("Записей нет");
+                MessageBox.Show("Записей нет!");
             }
             lvClients.ItemsSource = listClients;
         }
