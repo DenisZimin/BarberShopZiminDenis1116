@@ -12,12 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BarberShopZiminDenis1116.ClassHelperFolder;
+//ку
 
 namespace BarberShopZiminDenis1116.WindowsFolder
 {
     /// <summary>
-    /// Логика взаимодействия для ClientWindow.xaml
-    /// </summary>
+    /// Логика взаимодействия для ClientWindow.xaml 
+    /// </summary> 
     public partial class ClientWindow : Window
     {
         List<EFDataBaseFolder.Client> listClients = new List<EFDataBaseFolder.Client>();
