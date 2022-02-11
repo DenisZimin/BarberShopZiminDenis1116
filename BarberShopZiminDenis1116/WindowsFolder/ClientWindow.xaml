@@ -19,6 +19,7 @@
         <!--Фон-->
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.RowSpan="3" Stretch="Fill"/>
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="4" Stretch="Fill"/>
+        <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="3" Stretch="Fill"/>
 
         <!--Заголовок-->
         <TextBlock Text="Список клиентов" VerticalAlignment="Center"
@@ -30,7 +31,7 @@
 
         <!--Данные базы-->
         <ListView x:Name="lvClients" KeyUp="lvClients_KeyUp"
-                  Grid.Row="3" Background="#FFDBF3FF">
+                  Grid.Row="3" Background="#FFDBF3FF" Width="785">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idClient}"/>

@@ -19,6 +19,9 @@
         <!--Фон-->
             <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="4" Stretch="Fill"/>
+        <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="3" Stretch="Fill"/>
+
+
 
         <!--Заголовок-->
         <TextBlock Text="Список заказов" VerticalAlignment="Center"
@@ -30,7 +33,7 @@
 
         <!--Данные базы-->
         <ListView x:Name="lvOrders" Background="#FFDBF3FF"
-                  Grid.Row="3" KeyUp="lvOrders_KeyUp">
+                  Grid.Row="3" KeyUp="lvOrders_KeyUp" Width="785">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idNote}"/>

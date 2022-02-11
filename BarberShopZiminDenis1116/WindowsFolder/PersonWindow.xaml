@@ -19,6 +19,7 @@
         <!--Фон-->
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.RowSpan="3" Stretch="Fill"/>
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="4" Stretch="Fill"/>
+        <Image Source="/ResoursesFolder/ФонБезЛиний.png" Grid.Row="3" Stretch="Fill"/>
 
         <!--Заголовок-->
         <TextBlock Text="Список сотрудников" VerticalAlignment="Center"
@@ -30,7 +31,7 @@
 
         <!--Данные базы-->
         <ListView x:Name="lvPerson" KeyUp="lvPerson_KeyUp" Background="#FFDBF3FF"
-                  Grid.Row="3">
+                  Grid.Row="3" Width="785">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idPersonal}"/>
@@ -43,8 +44,6 @@
                     <GridViewColumn Header="Время работы" Width="100" DisplayMemberBinding="{Binding WorkTime.WorkTime1}"/>
                     <GridViewColumn Header="Логин сотрудника" Width="100" DisplayMemberBinding="{Binding PersonalLogin}"/>
                     <GridViewColumn Header="Пароль сотрундника" Width="100" DisplayMemberBinding="{Binding PersonalPassword}"/>
-
-
                 </GridView>
             </ListView.View>
         </ListView>
