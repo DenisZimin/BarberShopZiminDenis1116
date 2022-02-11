@@ -30,7 +30,7 @@
 
         <!--Данные базы-->
         <ListView x:Name="lvOrders" 
-                  Grid.Row="3">
+                  Grid.Row="3" KeyUp="lvOrders_KeyUp">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idNote}"/>

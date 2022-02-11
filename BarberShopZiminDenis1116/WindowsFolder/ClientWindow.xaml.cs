@@ -104,5 +104,30 @@ namespace BarberShopZiminDenis1116.WindowsFolder
         {
             this.Close();
         }
+
+        private void lvClients_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                var delClick = MessageBox.Show($"Хотите удалить клиента {(lvClients.SelectedItem as EFDataBaseFolder.Client).LastName}", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                try
+                {
+                    if (delClick == MessageBoxResult.Yes)
+                    {
+                        EFDataBaseFolder.Client clientDel = new EFDataBaseFolder.Client();
+                        clientDel = (lvClients.SelectedItem as EFDataBaseFolder.Client);
+                        ClassHelperFolder.AppData.context.Client.Remove(clientDel);
+                        ClassHelperFolder.AppData.context.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                MessageBox.Show($"Клиент удалён!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            Filter();
+
+        }
     }
 }

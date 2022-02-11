@@ -29,7 +29,7 @@
         </TextBlock>
 
         <!--Данные базы-->
-        <ListView x:Name="lvClients" 
+        <ListView x:Name="lvClients" KeyUp="lvClients_KeyUp"
                   Grid.Row="3">
             <ListView.View>
                 <GridView>
