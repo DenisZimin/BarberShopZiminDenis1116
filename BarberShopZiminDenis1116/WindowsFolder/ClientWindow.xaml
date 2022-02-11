@@ -30,7 +30,7 @@
 
         <!--Данные базы-->
         <ListView x:Name="lvClients" KeyUp="lvClients_KeyUp"
-                  Grid.Row="3">
+                  Grid.Row="3" Background="#FFDBF3FF">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idClient}"/>
