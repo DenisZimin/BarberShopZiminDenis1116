@@ -30,7 +30,7 @@
         </TextBlock>
 
         <!--Данные базы-->
-        <ListView x:Name="lvPerson" KeyUp="lvPerson_KeyUp" Background="#FFDBF3FF"
+        <ListView x:Name="lvPerson" MouseDoubleClick="lvPerson_MouseDoubleClick" KeyUp="lvPerson_KeyUp" Background="#FFDBF3FF"
                   Grid.Row="3" Width="785">
             <ListView.View>
                 <GridView>

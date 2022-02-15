@@ -42,6 +42,15 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             cmbSortPerson.SelectedIndex = 0;
             Filter();
         }
+
+        public PersonWindow(EFDataBaseFolder.Personal personal)
+        {
+            InitializeComponent();
+            cmbSortPerson.ItemsSource = listForSortPerson;
+            cmbSortPerson.SelectedIndex = 0;          
+        }
+
+
         private void Filter()
         {
             listPersons = ClassHelperFolder.AppData.context.Personal.ToList();
@@ -142,6 +151,14 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                 }
                 MessageBox.Show($"Сотрудник удалён", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            Filter();
+        }
+
+        private void lvPerson_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            EFDataBaseFolder.Personal userEdit = lvPerson.SelectedItem as EFDataBaseFolder.Personal;
+            addPersonalWindow addPersonalWindow = new addPersonalWindow(userEdit);
+            addPersonalWindow.ShowDialog();
             Filter();
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BarberShopZiminDenis1116.ClassHelperFolder;
+using BarberShopZiminDenis1116.EFDataBaseFolder;
 
 namespace BarberShopZiminDenis1116.WindowsFolder
 {
@@ -20,10 +21,32 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     /// </summary>
     public partial class addClientWindow : Window
     {
+
+        EFDataBaseFolder.Client editClient = new EFDataBaseFolder.Client();
+        bool isEdit = true;
+
         public addClientWindow()
         {
             InitializeComponent();
+            isEdit = false;
         }
+
+        public addClientWindow(EFDataBaseFolder.Client client)
+        {
+            InitializeComponent();
+            tbLastNameClient.Text = client.LastName;
+            tbFirstNameClient.Text = client.FirstName;
+            tbMiddleNameClient.Text = client.MiddleName;
+            tbPhoneClient.Text = client.PhoneNumber;
+            tbEmailClient.Text = client.EMail;
+
+            tbADDEDITCLIENT.Text = "Изменение данных";
+            btnAddClient.Content = "Изменить";
+            editClient = client;
+            isEdit = true;
+
+        }
+
 
         private void btnAddClient_Click(object sender, RoutedEventArgs e)
         {
@@ -70,23 +93,36 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             }
            
             //Добавление------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            var resClick = MessageBox.Show("Вы уверены, что хотите добавить пользователя?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var resClick = MessageBox.Show("Данные готовы?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             try
             {
                 if (resClick == MessageBoxResult.Yes)
                 {
-                    EFDataBaseFolder.Client addClient = new EFDataBaseFolder.Client();
-                    addClient.LastName = tbLastNameClient.Text;
-                    addClient.FirstName = tbFirstNameClient.Text;
-                    addClient.MiddleName = tbMiddleNameClient.Text;
-                    addClient.PhoneNumber = tbPhoneClient.Text;
-                    addClient.EMail = tbEmailClient.Text;
-
-                    ClassHelperFolder.AppData.context.Client.Add(addClient);
-                    ClassHelperFolder.AppData.context.SaveChanges();
-                    MessageBox.Show("Пользователь добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    if (isEdit)
+                    {
+                        editClient.LastName = tbLastNameClient.Text;
+                        editClient.FirstName = tbFirstNameClient.Text;
+                        editClient.MiddleName = tbMiddleNameClient.Text;
+                        editClient.PhoneNumber = tbPhoneClient.Text;
+                        editClient.EMail = tbEmailClient.Text;
+                        ClassHelperFolder.AppData.context.SaveChanges();
+                        MessageBox.Show("Пользователь изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        EFDataBaseFolder.Client addClient = new EFDataBaseFolder.Client();
+                        addClient.LastName = tbLastNameClient.Text;
+                        addClient.FirstName = tbFirstNameClient.Text;
+                        addClient.MiddleName = tbMiddleNameClient.Text;
+                        addClient.PhoneNumber = tbPhoneClient.Text;
+                        addClient.EMail = tbEmailClient.Text;
+                        ClassHelperFolder.AppData.context.Client.Add(addClient);
+                        ClassHelperFolder.AppData.context.SaveChanges();
+                        MessageBox.Show("Пользователь добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }                  
                 }
             }
             catch (Exception ex)

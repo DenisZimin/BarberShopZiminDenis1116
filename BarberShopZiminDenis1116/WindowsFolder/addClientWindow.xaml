@@ -23,7 +23,7 @@
 
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="7" Margin="0,0,-0.222,0.111"/>
 
-        <TextBlock Text="Добавление клиента" VerticalAlignment="Center" Grid.ColumnSpan="2"
+        <TextBlock Text="Добавление клиента" VerticalAlignment="Center" Grid.ColumnSpan="2" x:Name="tbADDEDITCLIENT"
                    HorizontalAlignment="Center" FontSize="24" FontFamily="Tahoma" Foreground="White" Height="36" Width="230">
             <TextBlock.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="3"/>

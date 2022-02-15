@@ -20,6 +20,11 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     /// </summary>
     public partial class addPersonalWindow : Window
     {
+
+        EFDataBaseFolder.Personal editPersonal = new EFDataBaseFolder.Personal();
+
+        bool isEdit = true;
+
         public addPersonalWindow()
         {
             InitializeComponent();
@@ -30,6 +35,35 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             cmbWorkTimePerson.ItemsSource = ClassHelperFolder.AppData.context.WorkTime.ToList();
             cmbWorkTimePerson.DisplayMemberPath = "WorkTime1";
             cmbWorkTimePerson.SelectedIndex = 0;
+
+            isEdit = false;
+        }
+
+        public addPersonalWindow(EFDataBaseFolder.Personal personal)
+        {
+            InitializeComponent();
+            cmbPostPerson.ItemsSource = ClassHelperFolder.AppData.context.Post.ToList();
+            cmbPostPerson.DisplayMemberPath = "PostName";
+            cmbPostPerson.SelectedIndex = Convert.ToInt32(personal.idFKPost-1);
+
+            cmbWorkTimePerson.ItemsSource = ClassHelperFolder.AppData.context.WorkTime.ToList();
+            cmbWorkTimePerson.DisplayMemberPath = "WorkTime1";
+            cmbWorkTimePerson.SelectedIndex = Convert.ToInt32(personal.idWorkTime-1);
+
+            tbLastNamePersonal.Text = personal.LastName;
+            tbFirstNamePersonal.Text = personal.LastName;
+            tbMiddleNamePersonal.Text = personal.MiddleName;
+            tbPhonePersonal.Text = personal.PhoneNumber;
+            tbEmailPersonal.Text = personal.EMail;
+            tbLoginPersonal.Text = personal.PersonalLogin;
+            tbPassPersonal.Text = personal.PersonalPassword;
+
+            tbADDEDITPersonal.Text = "Изменение данных";
+            btnAddPersonal.Content = "Изменить";
+
+            editPersonal = personal;
+            isEdit = true;
+
         }
 
         private void btnAddPersonal_Click(object sender, RoutedEventArgs e)
@@ -112,27 +146,46 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             }
 
             //Добавление------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            var resClick = MessageBox.Show("Вы уверены, что хотите добавить пользователя?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var resClick = MessageBox.Show("Данные готовы?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             try
             {
                 if (resClick == MessageBoxResult.Yes)
                 {
-                    EFDataBaseFolder.Personal addPersonal = new EFDataBaseFolder.Personal();
-                    addPersonal.LastName = tbLastNamePersonal.Text;
-                    addPersonal.FirstName = tbFirstNamePersonal.Text;
-                    addPersonal.MiddleName = tbMiddleNamePersonal.Text;
-                    addPersonal.idFKPost = cmbPostPerson.SelectedIndex + 1;
-                    addPersonal.idWorkTime = cmbWorkTimePerson.SelectedIndex + 1;
-                    addPersonal.PhoneNumber = tbPhonePersonal.Text;
-                    addPersonal.EMail = tbEmailPersonal.Text;
-                    addPersonal.PersonalLogin = tbLoginPersonal.Text;
-                    addPersonal.PersonalPassword = tbPassPersonal.Text;
+                    if (isEdit)
+                    {
+                        EFDataBaseFolder.Personal addPersonal = new EFDataBaseFolder.Personal();
+                        editPersonal.LastName = tbLastNamePersonal.Text;
+                        editPersonal.FirstName = tbFirstNamePersonal.Text;
+                        editPersonal.MiddleName = tbMiddleNamePersonal.Text;
+                        editPersonal.idFKPost = cmbPostPerson.SelectedIndex + 1;
+                        editPersonal.idWorkTime = cmbWorkTimePerson.SelectedIndex + 1;
+                        editPersonal.PhoneNumber = tbPhonePersonal.Text;
+                        editPersonal.EMail = tbEmailPersonal.Text;
+                        editPersonal.PersonalLogin = tbLoginPersonal.Text;
+                        editPersonal.PersonalPassword = tbPassPersonal.Text;
+                        ClassHelperFolder.AppData.context.SaveChanges();
+                        MessageBox.Show("Пользователь изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        EFDataBaseFolder.Personal addPersonal = new EFDataBaseFolder.Personal();
+                        addPersonal.LastName = tbLastNamePersonal.Text;
+                        addPersonal.FirstName = tbFirstNamePersonal.Text;
+                        addPersonal.MiddleName = tbMiddleNamePersonal.Text;
+                        addPersonal.idFKPost = cmbPostPerson.SelectedIndex + 1;
+                        addPersonal.idWorkTime = cmbWorkTimePerson.SelectedIndex + 1;
+                        addPersonal.PhoneNumber = tbPhonePersonal.Text;
+                        addPersonal.EMail = tbEmailPersonal.Text;
+                        addPersonal.PersonalLogin = tbLoginPersonal.Text;
+                        addPersonal.PersonalPassword = tbPassPersonal.Text;
 
-                    ClassHelperFolder.AppData.context.Personal.Add(addPersonal);
-                    ClassHelperFolder.AppData.context.SaveChanges();
-                    MessageBox.Show("Пользователь добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                        ClassHelperFolder.AppData.context.Personal.Add(addPersonal);
+                        ClassHelperFolder.AppData.context.SaveChanges();
+                        MessageBox.Show("Пользователь добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)

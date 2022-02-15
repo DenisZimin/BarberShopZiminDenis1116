@@ -28,7 +28,7 @@
 
         <Image Source="/ResoursesFolder/ФонБезЛиний.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.RowSpan="12" Margin="0,0,-0.444,0.302"/>
 
-        <TextBlock Text="Добавление сотрудника" VerticalAlignment="Center" Grid.ColumnSpan="2"
+        <TextBlock Text="Добавление сотрудника" x:Name="tbADDEDITPersonal" VerticalAlignment="Center" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" FontSize="18" FontFamily="Tahoma" Foreground="White" Height="30" Width="200">
             <TextBlock.Effect>
                 <DropShadowEffect ShadowDepth="3" BlurRadius="10"/>

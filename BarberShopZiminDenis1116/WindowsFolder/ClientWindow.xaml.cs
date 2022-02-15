@@ -129,5 +129,13 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             Filter();
 
         }
+
+        private void lvClients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            EFDataBaseFolder.Client userEdit = lvClients.SelectedItem as EFDataBaseFolder.Client;
+            addClientWindow addClientWindow = new addClientWindow(userEdit);
+            addClientWindow.ShowDialog();
+            Filter();
+        }
     }
 }
