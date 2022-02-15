@@ -83,7 +83,7 @@
             <PropertyRef Name="idWorkTime" />
           </Key>
           <Property Name="idWorkTime" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WorkTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkTime" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_Notes_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
@@ -297,7 +297,7 @@
             <PropertyRef Name="idWorkTime" />
           </Key>
           <Property Name="idWorkTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WorkTime1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkTime1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_WorkTime" FromRole="WorkTime" ToRole="Personal" />
         </EntityType>
         <Association Name="FK_Notes_Client">
