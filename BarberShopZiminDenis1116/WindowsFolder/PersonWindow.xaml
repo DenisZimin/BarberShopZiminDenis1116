@@ -44,7 +44,7 @@
                     <GridViewColumn Header="Время работы" Width="100" DisplayMemberBinding="{Binding WorkTime.WorkTime1}"/>
                     <GridViewColumn Header="Логин сотрудника" Width="100" DisplayMemberBinding="{Binding PersonalLogin}"/>
                     <GridViewColumn Header="Пароль сотрундника" Width="100" DisplayMemberBinding="{Binding PersonalPassword}"/>
-                    <GridViewColumn Header="Удален" Width="200" DisplayMemberBinding="{Binding IsDeleted}"/>
+                    <GridViewColumn Header="Удален" Width="80" DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
             </ListView.View>
         </ListView>

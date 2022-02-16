@@ -40,7 +40,7 @@
                     <GridViewColumn Header="Отчество" Width="100" DisplayMemberBinding="{Binding MiddleName}"/>
                     <GridViewColumn Header="Телефон" Width="100" DisplayMemberBinding="{Binding PhoneNumber}"/>
                     <GridViewColumn Header="Почта" Width="200" DisplayMemberBinding="{Binding EMail}"/>
-                    <GridViewColumn Header="Удален" Width="200" DisplayMemberBinding="{Binding IsDeleted}"/>
+                    <GridViewColumn Header="Удален" Width="80" DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
             </ListView.View>
         </ListView>
