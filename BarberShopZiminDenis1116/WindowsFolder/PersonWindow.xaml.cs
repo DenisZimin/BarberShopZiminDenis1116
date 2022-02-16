@@ -33,7 +33,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             "По должности",
             "По времени работы",
             "По логину",
-            "По паролю"
+            "По паролю",
+            "По удалению"
         };
         public PersonWindow()
         {
@@ -93,6 +94,9 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                     break;
                 case 9:
                     listPersons = listPersons.OrderBy(i => i.PersonalPassword).ToList();
+                    break;
+                case 10:
+                    listPersons = listPersons.OrderBy(i => i.IsDeleted).ToList();
                     break;
                 default:
                     listPersons = listPersons.OrderBy(i => i.idPersonal).ToList();

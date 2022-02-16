@@ -15,6 +15,7 @@
           <Property Name="MiddleName" Type="nvarchar" MaxLength="100" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Notes">
           <Key>
@@ -43,6 +44,7 @@
           <Property Name="idWorkTime" Type="int" Nullable="false" />
           <Property Name="PersonalLogin" Type="nvarchar" MaxLength="100" />
           <Property Name="PersonalPassword" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -83,7 +85,7 @@
             <PropertyRef Name="idWorkTime" />
           </Key>
           <Property Name="idWorkTime" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WorkTime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="WorkTime" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Notes_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
@@ -221,6 +223,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Client" FromRole="Client" ToRole="Notes" />
+          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Notes">
           <Key>
@@ -255,6 +258,7 @@
           <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Personal" FromRole="Personal" ToRole="Notes" />
           <NavigationProperty Name="Post" Relationship="Self.FK_Personal_Post" FromRole="Personal" ToRole="Post" />
           <NavigationProperty Name="WorkTime" Relationship="Self.FK_Personal_WorkTime" FromRole="Personal" ToRole="WorkTime" />
+          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -297,7 +301,7 @@
             <PropertyRef Name="idWorkTime" />
           </Key>
           <Property Name="idWorkTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WorkTime1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkTime1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_WorkTime" FromRole="WorkTime" ToRole="Personal" />
         </EntityType>
         <Association Name="FK_Notes_Client">
@@ -440,6 +444,7 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="BarberShopDBModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="idClient" ColumnName="idClient" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -466,6 +471,7 @@
           <EntitySetMapping Name="Personal">
             <EntityTypeMapping TypeName="BarberShopDBModel.Personal">
               <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="idPersonal" ColumnName="idPersonal" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

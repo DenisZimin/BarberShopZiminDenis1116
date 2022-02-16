@@ -30,7 +30,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             "По имени",
             "По отчетству",
             "По телефону",
-            "По почте"
+            "По почте",
+            "По удалению"
         };
 
         public ClientWindow()
@@ -69,6 +70,9 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                     break;
                 case 5:
                     listClients = listClients.OrderBy(i => i.EMail).ToList();
+                    break;
+                case 6:
+                    listClients = listClients.OrderBy(i => i.IsDeleted).ToList();
                     break;
                 default: 
                     listClients = listClients.OrderBy(i => i.idClient).ToList();

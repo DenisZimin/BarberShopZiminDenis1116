@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\denis\source\repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\EFDataBaseFolder\Model1.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\IMac1\Source\Repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\EFDataBaseFolder\Model1.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.
