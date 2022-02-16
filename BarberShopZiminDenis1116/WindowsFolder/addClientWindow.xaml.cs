@@ -107,7 +107,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         editClient.PhoneNumber = tbPhoneClient.Text;
                         editClient.EMail = tbEmailClient.Text;
                         ClassHelperFolder.AppData.context.SaveChanges();
-                        MessageBox.Show("Пользователь изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Клиент изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                     else
@@ -118,9 +118,10 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addClient.MiddleName = tbMiddleNameClient.Text;
                         addClient.PhoneNumber = tbPhoneClient.Text;
                         addClient.EMail = tbEmailClient.Text;
+                        addClient.IsDeleted = false;
                         ClassHelperFolder.AppData.context.Client.Add(addClient);
                         ClassHelperFolder.AppData.context.SaveChanges();
-                        MessageBox.Show("Пользователь добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Клиент добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }                  
                 }

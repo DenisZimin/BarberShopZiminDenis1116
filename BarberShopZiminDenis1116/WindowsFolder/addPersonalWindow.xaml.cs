@@ -165,7 +165,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         editPersonal.PersonalLogin = tbLoginPersonal.Text;
                         editPersonal.PersonalPassword = tbPassPersonal.Text;
                         ClassHelperFolder.AppData.context.SaveChanges();
-                        MessageBox.Show("Пользователь изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Сотрудник изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                     else
@@ -180,10 +180,10 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addPersonal.EMail = tbEmailPersonal.Text;
                         addPersonal.PersonalLogin = tbLoginPersonal.Text;
                         addPersonal.PersonalPassword = tbPassPersonal.Text;
-
+                        addPersonal.IsDeleted = false;
                         ClassHelperFolder.AppData.context.Personal.Add(addPersonal);
                         ClassHelperFolder.AppData.context.SaveChanges();
-                        MessageBox.Show("Пользователь добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Сотрудник добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                 }

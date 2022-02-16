@@ -122,13 +122,14 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         clientDel = (lvClients.SelectedItem as EFDataBaseFolder.Client);
                         ClassHelperFolder.AppData.context.Client.Remove(clientDel);
                         ClassHelperFolder.AppData.context.SaveChanges();
+                        MessageBox.Show($"Клиент удалён!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                MessageBox.Show($"Клиент удалён!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                
             }
             Filter();
 
