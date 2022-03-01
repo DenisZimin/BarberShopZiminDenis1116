@@ -31,6 +31,7 @@ namespace BarberShopZiminDenis1116.EFDataBaseFolder
         public string PersonalLogin { get; set; }
         public string PersonalPassword { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public byte[] PersonalPhoto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notes> Notes { get; set; }

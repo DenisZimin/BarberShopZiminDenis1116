@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShopZiminDenis1116.WindowsFolder"
         mc:Ignorable="d"
-        Title="Данные - сотрудник" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="Данные - сотрудник" Height="450" Width="1000" WindowStartupLocation="CenterScreen"
         WindowStyle="None">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -29,26 +30,213 @@
             </TextBlock.Effect>
         </TextBlock>
 
-        <!--Данные базы-->
-        <ListView x:Name="lvPerson" MouseDoubleClick="lvPerson_MouseDoubleClick" KeyUp="lvPerson_KeyUp" Background="#FFDBF3FF"
-                  Grid.Row="3" Width="785">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idPersonal}"/>
-                    <GridViewColumn Header="Фамилия" Width="100" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="Имя" Width="100" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Отчество" Width="100" DisplayMemberBinding="{Binding MiddleName}"/>
-                    <GridViewColumn Header="Телефон" Width="100" DisplayMemberBinding="{Binding PhoneNumber}"/>
-                    <GridViewColumn Header="Почта" Width="200" DisplayMemberBinding="{Binding EMail}"/>
-                    <GridViewColumn Header="Должность" Width="250" DisplayMemberBinding="{Binding Post.PostName}"/>
-                    <GridViewColumn Header="Время работы" Width="100" DisplayMemberBinding="{Binding WorkTime.WorkTime1}"/>
-                    <GridViewColumn Header="Логин сотрудника" Width="100" DisplayMemberBinding="{Binding PersonalLogin}"/>
-                    <GridViewColumn Header="Пароль сотрундника" Width="100" DisplayMemberBinding="{Binding PersonalPassword}"/>
-                    <GridViewColumn Header="Удален" Width="80" DisplayMemberBinding="{Binding IsDeleted}"/>
-                </GridView>
-            </ListView.View>
+        <!--Данные базы-->                  
+                  <ListView x:Name="lvPerson"
+                  Grid.Row="3"
+                  KeyUp="lvPerson_KeyUp"
+                  MouseDoubleClick="lvPerson_MouseDoubleClick"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel/>
+            </ItemsPanelTemplate>
+        </ListView.ItemsPanel>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Border BorderBrush="DarkGray"
+                BorderThickness="2"
+                CornerRadius="10"
+                Width="900"
+                Height="130"
+                Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+
+                        <Image Grid.Column="0"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="5"
+                                   Width="100"
+                                   Height="100" Margin="50 0 0 0">
+                            <Image.Source>
+                                <Binding Path="PersonalPhoto">
+                                    <Binding.TargetNullValue>
+                                            <ImageSource>/BarberShopZiminDenis1116;component/ResoursesFolder/user.png</ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+
+                        <!-- 1 -->
+                        <TextBlock Text="Фамилия:"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="Имя:"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="Телефон:"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+                        
+                            <TextBlock Text="Почта:"
+                           Grid.Column="1"
+                           Grid.Row="3"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <TextBlock Text="Удалён:"
+                           Grid.Column="1"
+                           Grid.Row="4"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <!-- 2 -->
+
+                        <TextBlock Text="{Binding Path = LastName}"
+                           Grid.Column="2"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="{Binding Path = FirstName}"
+                           Grid.Column="2"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <TextBlock Text="{Binding Path = PhoneNumber}"
+                           Grid.Column="2"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <TextBlock Text="{Binding Path = EMail}"
+                           Grid.Column="2"
+                           Grid.Row="3"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <TextBlock Text="{Binding Path = IsDeleted}"
+                           Grid.Column="2"
+                           Grid.Row="4"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <!-- 3 -->
+
+                        <TextBlock Text="Специализация"
+                            Grid.Column="3"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="Логин:"
+                           Grid.Column="3"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="Пароль:"
+                           Grid.Column="3"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <TextBlock Text="Время работы:"
+                           Grid.Column="3"
+                           Grid.Row="3"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+
+                            <!-- 4 -->
+                        <TextBlock Text="{Binding Path = Post.PostName}"
+                            Grid.Column="4"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="{Binding Path = PersonalLogin}"
+                           Grid.Column="4"
+                           Grid.Row="1"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                        <TextBlock Text="{Binding Path = PersonalPassword}"
+                           Grid.Column="4"
+                           Grid.Row="2"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+
+                            <TextBlock Text="{Binding Path = WorkTime.WorkTime1}"
+                           Grid.Column="4"
+                           Grid.Row="3"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="0 0 10 0"
+                           FontSize="15"/>
+                        </Grid>
+                </Border>
+            </DataTemplate>
+        </ListView.ItemTemplate>
         </ListView>
-        
+
         <Button Width="60" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right"
                 Margin="0 5 5 0" x:Name="btnExitPERWIN" Click="btnExitPERWIN_Click"  Content="Выход"
                 Background="#FFFFA6A6">

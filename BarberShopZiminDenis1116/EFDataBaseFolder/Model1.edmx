@@ -45,6 +45,7 @@
           <Property Name="PersonalLogin" Type="nvarchar" MaxLength="100" />
           <Property Name="PersonalPassword" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="PersonalPhoto" Type="varbinary" MaxLength="500" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -259,6 +260,7 @@
           <NavigationProperty Name="Post" Relationship="Self.FK_Personal_Post" FromRole="Personal" ToRole="Post" />
           <NavigationProperty Name="WorkTime" Relationship="Self.FK_Personal_WorkTime" FromRole="Personal" ToRole="WorkTime" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="PersonalPhoto" Type="Binary" MaxLength="500" FixedLength="false" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -471,6 +473,7 @@
           <EntitySetMapping Name="Personal">
             <EntityTypeMapping TypeName="BarberShopDBModel.Personal">
               <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="PersonalPhoto" ColumnName="PersonalPhoto" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="idPersonal" ColumnName="idPersonal" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
