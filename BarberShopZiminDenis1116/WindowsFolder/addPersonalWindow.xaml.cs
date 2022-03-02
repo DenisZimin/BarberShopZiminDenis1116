@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BarberShopZiminDenis1116.ClassHelperFolder;
+using BarberShopZiminDenis1116.EFDataBaseFolder;
+using Microsoft.Win32;
+
 
 namespace BarberShopZiminDenis1116.WindowsFolder
 {
@@ -22,7 +26,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     {
 
         EFDataBaseFolder.Personal editPersonal = new EFDataBaseFolder.Personal();
-
+        private string pathPhoto = null;
         bool isEdit = true;
 
         public addPersonalWindow()
@@ -60,6 +64,21 @@ namespace BarberShopZiminDenis1116.WindowsFolder
 
             tbADDEDITPersonal.Text = "Изменение данных";
             btnAddPersonal.Content = "Изменить";
+
+            if (personal.PersonalPhoto != null)
+            {
+                using (MemoryStream stream = new MemoryStream(personal.PersonalPhoto))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    bitmapImage.StreamSource = stream;
+                    bitmapImage.EndInit();
+                    PersonalPhoto.Source = bitmapImage;
+                }
+
+            }
 
             editPersonal = personal;
             isEdit = true;
@@ -164,6 +183,10 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         editPersonal.EMail = tbEmailPersonal.Text;
                         editPersonal.PersonalLogin = tbLoginPersonal.Text;
                         editPersonal.PersonalPassword = tbPassPersonal.Text;
+                        if (pathPhoto != null)
+                        {
+                            editPersonal.PersonalPhoto = File.ReadAllBytes(pathPhoto);
+                        }
                         ClassHelperFolder.AppData.context.SaveChanges();
                         MessageBox.Show("Сотрудник изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
@@ -181,6 +204,10 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addPersonal.PersonalLogin = tbLoginPersonal.Text;
                         addPersonal.PersonalPassword = tbPassPersonal.Text;
                         addPersonal.IsDeleted = false;
+                        if (pathPhoto != null)
+                        {
+                            addPersonal.PersonalPhoto = File.ReadAllBytes(pathPhoto);
+                        }
                         ClassHelperFolder.AppData.context.Personal.Add(addPersonal);
                         ClassHelperFolder.AppData.context.SaveChanges();
                         MessageBox.Show("Сотрудник добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -211,6 +238,16 @@ namespace BarberShopZiminDenis1116.WindowsFolder
         private void btnExitAddPerWindow_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChangePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == true)
+            {
+                PersonalPhoto.Source = new BitmapImage(new Uri(openFile.FileName));
+                pathPhoto = openFile.FileName;
+            }
         }
     }
 }
