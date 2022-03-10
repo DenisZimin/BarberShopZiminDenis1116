@@ -34,7 +34,7 @@ namespace BarberShopZiminDenis1116
 
         private void BTNInfoMainWindow_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Зимин Денис - 2ИСП11-16. Помощь: Адышкин Сергей Сергеевич", "Разработчик", MessageBoxButton.OK);
+            MessageBox.Show("Зимин Д.В. и Логуа А.Д. - 2ИСП11-16. Помощь: Адышкин Сергей Сергеевич", "Разработчики", MessageBoxButton.OK);
         }
 
         private void btnClient_Click(object sender, RoutedEventArgs e)

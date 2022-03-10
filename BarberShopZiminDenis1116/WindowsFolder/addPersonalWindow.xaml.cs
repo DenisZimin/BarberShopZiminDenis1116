@@ -167,8 +167,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             //Добавление------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             var resClick = MessageBox.Show("Данные готовы?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            try
-            {
+            //try
+            //{
                 if (resClick == MessageBoxResult.Yes)
                 {
                     if (isEdit)
@@ -204,21 +204,21 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addPersonal.PersonalLogin = tbLoginPersonal.Text;
                         addPersonal.PersonalPassword = tbPassPersonal.Text;
                         addPersonal.IsDeleted = false;
-                        if (pathPhoto != null)
-                        {
-                            addPersonal.PersonalPhoto = File.ReadAllBytes(pathPhoto);
-                        }
-                        ClassHelperFolder.AppData.context.Personal.Add(addPersonal);
+                    if (pathPhoto != null)
+                    {
+                        addPersonal.PersonalPhoto = File.ReadAllBytes(pathPhoto);
+                    }
+                    ClassHelperFolder.AppData.context.Personal.Add(addPersonal);
                         ClassHelperFolder.AppData.context.SaveChanges();
                         MessageBox.Show("Сотрудник добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString());
+            //}
         }
 
         private void tbPhonePersonal_TextChanged(object sender, TextChangedEventArgs e)

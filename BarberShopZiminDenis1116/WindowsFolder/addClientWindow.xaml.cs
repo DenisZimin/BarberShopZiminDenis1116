@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BarberShopZiminDenis1116.ClassHelperFolder;
 using BarberShopZiminDenis1116.EFDataBaseFolder;
+using Microsoft.Win32;
 
 namespace BarberShopZiminDenis1116.WindowsFolder
 {
@@ -23,6 +25,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     {
 
         EFDataBaseFolder.Client editClient = new EFDataBaseFolder.Client();
+        private string pathPhoto = null;
         bool isEdit = true;
 
         public addClientWindow()
@@ -42,6 +45,22 @@ namespace BarberShopZiminDenis1116.WindowsFolder
 
             tbADDEDITCLIENT.Text = "Изменение данных";
             btnAddClient.Content = "Изменить";
+
+            if (client.ClientPhoto != null)
+            {
+                using (MemoryStream stream = new MemoryStream(client.ClientPhoto))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    bitmapImage.StreamSource = stream;
+                    bitmapImage.EndInit();
+                    ClientPhoto.Source = bitmapImage;
+                }
+
+            }
+
             editClient = client;
             isEdit = true;
 
@@ -106,6 +125,10 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         editClient.MiddleName = tbMiddleNameClient.Text;
                         editClient.PhoneNumber = tbPhoneClient.Text;
                         editClient.EMail = tbEmailClient.Text;
+                        if (pathPhoto != null)
+                        {
+                            editClient.ClientPhoto = File.ReadAllBytes(pathPhoto);
+                        }
                         ClassHelperFolder.AppData.context.SaveChanges();
                         MessageBox.Show("Клиент изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
@@ -119,6 +142,10 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addClient.PhoneNumber = tbPhoneClient.Text;
                         addClient.EMail = tbEmailClient.Text;
                         addClient.IsDeleted = false;
+                        if (pathPhoto != null)
+                        {
+                            editClient.ClientPhoto = File.ReadAllBytes(pathPhoto);
+                        }
                         ClassHelperFolder.AppData.context.Client.Add(addClient);
                         ClassHelperFolder.AppData.context.SaveChanges();
                         MessageBox.Show("Клиент добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -155,6 +182,16 @@ namespace BarberShopZiminDenis1116.WindowsFolder
         private void btnExitClientWindow_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChangePhotoCLIENT_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == true)
+            {
+                ClientPhoto.Source = new BitmapImage(new Uri(openFile.FileName));
+                pathPhoto = openFile.FileName;
+            }
         }
     }
 }

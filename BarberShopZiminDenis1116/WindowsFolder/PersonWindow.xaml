@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarberShopZiminDenis1116.WindowsFolder"
         mc:Ignorable="d"
-        Title="Данные - сотрудник" Height="450" Width="1000" WindowStartupLocation="CenterScreen"
+        Title="Данные - сотрудник" Height="850" Width="900" WindowStartupLocation="CenterScreen"
         WindowStyle="None">
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="12*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <!--Фон-->
@@ -35,7 +35,7 @@
                   Grid.Row="3"
                   KeyUp="lvPerson_KeyUp"
                   MouseDoubleClick="lvPerson_MouseDoubleClick"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#FFDBF3FF">
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel/>
@@ -46,16 +46,16 @@
                 <Border BorderBrush="DarkGray"
                 BorderThickness="2"
                 CornerRadius="10"
-                Width="900"
+                Width="840"
                 Height="130"
                 Margin="5">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
@@ -71,11 +71,11 @@
                                    Grid.Row="0"
                                    Grid.RowSpan="5"
                                    Width="100"
-                                   Height="100" Margin="50 0 0 0">
+                                   Height="100" Margin="15 0 0 0">
                             <Image.Source>
                                 <Binding Path="PersonalPhoto">
                                     <Binding.TargetNullValue>
-                                            <ImageSource>/BarberShopZiminDenis1116;component/ResoursesFolder/user.png</ImageSource>
+                                            <ImageSource>C:\Users\IMac1\source\repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\ResoursesFolder\NoPhoto.png</ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
@@ -87,7 +87,7 @@
                            Grid.Row="0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                         <TextBlock Text="Имя:"
@@ -95,7 +95,7 @@
                            Grid.Row="1"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                         <TextBlock Text="Телефон:"
@@ -103,7 +103,7 @@
                            Grid.Row="2"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
                         
                             <TextBlock Text="Почта:"
@@ -111,7 +111,7 @@
                            Grid.Row="3"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                             <TextBlock Text="Удалён:"
@@ -119,7 +119,7 @@
                            Grid.Row="4"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                             <!-- 2 -->
@@ -166,12 +166,12 @@
 
                             <!-- 3 -->
 
-                        <TextBlock Text="Специализация"
+                        <TextBlock Text="Специализация:"
                             Grid.Column="3"
                            Grid.Row="0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                         <TextBlock Text="Логин:"
@@ -179,7 +179,7 @@
                            Grid.Row="1"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                         <TextBlock Text="Пароль:"
@@ -187,7 +187,7 @@
                            Grid.Row="2"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
                             <TextBlock Text="Время работы:"
@@ -195,7 +195,7 @@
                            Grid.Row="3"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Right"
-                           Margin="0 0 10 0"
+                           Margin="0 0 6 0"
                            FontSize="15"/>
 
 

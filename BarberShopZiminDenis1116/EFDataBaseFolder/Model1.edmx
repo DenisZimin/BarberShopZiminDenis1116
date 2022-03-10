@@ -16,6 +16,7 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EMail" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="ClientPhoto" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Notes">
           <Key>
@@ -45,7 +46,7 @@
           <Property Name="PersonalLogin" Type="nvarchar" MaxLength="100" />
           <Property Name="PersonalPassword" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDeleted" Type="bit" />
-          <Property Name="PersonalPhoto" Type="varbinary" MaxLength="1000" />
+          <Property Name="PersonalPhoto" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -213,188 +214,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BarberShopDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="idClient" />
-          </Key>
-          <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Client" FromRole="Client" ToRole="Notes" />
-          <Property Name="IsDeleted" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Notes">
-          <Key>
-            <PropertyRef Name="idNote" />
-          </Key>
-          <Property Name="idNote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idFKService" Type="Int32" Nullable="false" />
-          <Property Name="idFKClient" Type="Int32" Nullable="false" />
-          <Property Name="idFKPersonal" Type="Int32" Nullable="false" />
-          <Property Name="NateDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateStart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DataFinish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Notes_Client" FromRole="Notes" ToRole="Client" />
-          <NavigationProperty Name="Personal" Relationship="Self.FK_Notes_Personal" FromRole="Notes" ToRole="Personal" />
-          <NavigationProperty Name="Service" Relationship="Self.FK_Notes_Service" FromRole="Notes" ToRole="Service" />
-        </EntityType>
-        <EntityType Name="Personal">
-          <Key>
-            <PropertyRef Name="idPersonal" />
-          </Key>
-          <Property Name="idPersonal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="idFKPost" Type="Int32" Nullable="false" />
-          <Property Name="idWorkTime" Type="Int32" Nullable="false" />
-          <Property Name="PersonalLogin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PersonalPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Personal" FromRole="Personal" ToRole="Notes" />
-          <NavigationProperty Name="Post" Relationship="Self.FK_Personal_Post" FromRole="Personal" ToRole="Post" />
-          <NavigationProperty Name="WorkTime" Relationship="Self.FK_Personal_WorkTime" FromRole="Personal" ToRole="WorkTime" />
-          <Property Name="IsDeleted" Type="Boolean" />
-          <Property Name="PersonalPhoto" Type="Binary" MaxLength="1000" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Post">
-          <Key>
-            <PropertyRef Name="idPost" />
-          </Key>
-          <Property Name="idPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PostName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_Post" FromRole="Post" ToRole="Personal" />
-        </EntityType>
-        <EntityType Name="Service">
-          <Key>
-            <PropertyRef Name="idService" />
-          </Key>
-          <Property Name="idService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cost" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Notes" Relationship="Self.FK_Notes_Service" FromRole="Service" ToRole="Notes" />
-        </EntityType>
-        <EntityType Name="Storage">
-          <Key>
-            <PropertyRef Name="idStorage" />
-          </Key>
-          <Property Name="idStorage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="WorkTime">
-          <Key>
-            <PropertyRef Name="idWorkTime" />
-          </Key>
-          <Property Name="idWorkTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WorkTime1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Personal" Relationship="Self.FK_Personal_WorkTime" FromRole="WorkTime" ToRole="Personal" />
-        </EntityType>
-        <Association Name="FK_Notes_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="idClient" />
-            </Principal>
-            <Dependent Role="Notes">
-              <PropertyRef Name="idFKClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Notes_Personal">
-          <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
-          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal">
-              <PropertyRef Name="idPersonal" />
-            </Principal>
-            <Dependent Role="Notes">
-              <PropertyRef Name="idFKPersonal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Notes_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
-          <End Role="Notes" Type="Self.Notes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Service">
-              <PropertyRef Name="idService" />
-            </Principal>
-            <Dependent Role="Notes">
-              <PropertyRef Name="idFKService" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Personal_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="1" />
-          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Post">
-              <PropertyRef Name="idPost" />
-            </Principal>
-            <Dependent Role="Personal">
-              <PropertyRef Name="idFKPost" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Personal_WorkTime">
-          <End Role="WorkTime" Type="Self.WorkTime" Multiplicity="1" />
-          <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WorkTime">
-              <PropertyRef Name="idWorkTime" />
-            </Principal>
-            <Dependent Role="Personal">
-              <PropertyRef Name="idWorkTime" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="Notes" EntityType="Self.Notes" />
-          <EntitySet Name="Personal" EntityType="Self.Personal" />
-          <EntitySet Name="Post" EntityType="Self.Post" />
-          <EntitySet Name="Service" EntityType="Self.Service" />
-          <EntitySet Name="Storage" EntityType="Self.Storage" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="WorkTime" EntityType="Self.WorkTime" />
-          <AssociationSet Name="FK_Notes_Client" Association="Self.FK_Notes_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Notes" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Notes_Personal" Association="Self.FK_Notes_Personal">
-            <End Role="Personal" EntitySet="Personal" />
-            <End Role="Notes" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Notes_Service" Association="Self.FK_Notes_Service">
-            <End Role="Service" EntitySet="Service" />
-            <End Role="Notes" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Personal_Post" Association="Self.FK_Personal_Post">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="Personal" EntitySet="Personal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Personal_WorkTime" Association="Self.FK_Personal_WorkTime">
-            <End Role="WorkTime" EntitySet="WorkTime" />
-            <End Role="Personal" EntitySet="Personal" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -425,6 +245,34 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Client" EntityType="BarberShopDBModel.Client" />
+          <EntitySet Name="Notes" EntityType="BarberShopDBModel.Notes" />
+          <EntitySet Name="Personal" EntityType="BarberShopDBModel.Personal" />
+          <EntitySet Name="Post" EntityType="BarberShopDBModel.Post" />
+          <EntitySet Name="Service" EntityType="BarberShopDBModel.Service" />
+          <EntitySet Name="Storage" EntityType="BarberShopDBModel.Storage" />
+          <EntitySet Name="sysdiagrams" EntityType="BarberShopDBModel.sysdiagrams" />
+          <EntitySet Name="WorkTime" EntityType="BarberShopDBModel.WorkTime" />
+          <AssociationSet Name="FK_Notes_Client" Association="BarberShopDBModel.FK_Notes_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_Personal" Association="BarberShopDBModel.FK_Notes_Personal">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_Service" Association="BarberShopDBModel.FK_Notes_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Post" Association="BarberShopDBModel.FK_Personal_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_WorkTime" Association="BarberShopDBModel.FK_Personal_WorkTime">
+            <End Role="WorkTime" EntitySet="WorkTime" />
+            <End Role="Personal" EntitySet="Personal" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -437,103 +285,166 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="idClient" />
+          </Key>
+          <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="Notes" Relationship="BarberShopDBModel.FK_Notes_Client" FromRole="Client" ToRole="Notes" />
+          <Property Name="ClientPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="idNote" />
+          </Key>
+          <Property Name="idNote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idFKService" Type="Int32" Nullable="false" />
+          <Property Name="idFKClient" Type="Int32" Nullable="false" />
+          <Property Name="idFKPersonal" Type="Int32" Nullable="false" />
+          <Property Name="NateDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateStart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataFinish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="BarberShopDBModel.FK_Notes_Client" FromRole="Notes" ToRole="Client" />
+          <NavigationProperty Name="Personal" Relationship="BarberShopDBModel.FK_Notes_Personal" FromRole="Notes" ToRole="Personal" />
+          <NavigationProperty Name="Service" Relationship="BarberShopDBModel.FK_Notes_Service" FromRole="Notes" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="idPersonal" />
+          </Key>
+          <Property Name="idPersonal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="idFKPost" Type="Int32" Nullable="false" />
+          <Property Name="idWorkTime" Type="Int32" Nullable="false" />
+          <Property Name="PersonalLogin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="PersonalPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Notes" Relationship="BarberShopDBModel.FK_Notes_Personal" FromRole="Personal" ToRole="Notes" />
+          <NavigationProperty Name="Post" Relationship="BarberShopDBModel.FK_Personal_Post" FromRole="Personal" ToRole="Post" />
+          <NavigationProperty Name="WorkTime" Relationship="BarberShopDBModel.FK_Personal_WorkTime" FromRole="Personal" ToRole="WorkTime" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="idPost" />
+          </Key>
+          <Property Name="idPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Personal" Relationship="BarberShopDBModel.FK_Personal_Post" FromRole="Post" ToRole="Personal" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="idService" />
+          </Key>
+          <Property Name="idService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cost" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Notes" Relationship="BarberShopDBModel.FK_Notes_Service" FromRole="Service" ToRole="Notes" />
+        </EntityType>
+        <EntityType Name="Storage">
+          <Key>
+            <PropertyRef Name="idStorage" />
+          </Key>
+          <Property Name="idStorage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Manufacturer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="WorkTime">
+          <Key>
+            <PropertyRef Name="idWorkTime" />
+          </Key>
+          <Property Name="idWorkTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkTime1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Personal" Relationship="BarberShopDBModel.FK_Personal_WorkTime" FromRole="WorkTime" ToRole="Personal" />
+        </EntityType>
+        <Association Name="FK_Notes_Client">
+          <End Type="BarberShopDBModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="BarberShopDBModel.Notes" Role="Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="idClient" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="idFKClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_Personal">
+          <End Type="BarberShopDBModel.Personal" Role="Personal" Multiplicity="1" />
+          <End Type="BarberShopDBModel.Notes" Role="Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="idPersonal" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="idFKPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_Service">
+          <End Type="BarberShopDBModel.Service" Role="Service" Multiplicity="1" />
+          <End Type="BarberShopDBModel.Notes" Role="Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="idService" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="idFKService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Post">
+          <End Type="BarberShopDBModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="BarberShopDBModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="idPost" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="idFKPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_WorkTime">
+          <End Type="BarberShopDBModel.WorkTime" Role="WorkTime" Multiplicity="1" />
+          <End Type="BarberShopDBModel.Personal" Role="Personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorkTime">
+              <PropertyRef Name="idWorkTime" />
+            </Principal>
+            <Dependent Role="Personal">
+              <PropertyRef Name="idWorkTime" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище BarberShopDBModelContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="BarberShopDBModel.Client">
-              <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="idClient" ColumnName="idClient" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="EMail" ColumnName="EMail" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Notes">
-            <EntityTypeMapping TypeName="BarberShopDBModel.Notes">
-              <MappingFragment StoreEntitySet="Notes">
-                <ScalarProperty Name="idNote" ColumnName="idNote" />
-                <ScalarProperty Name="idFKService" ColumnName="idFKService" />
-                <ScalarProperty Name="idFKClient" ColumnName="idFKClient" />
-                <ScalarProperty Name="idFKPersonal" ColumnName="idFKPersonal" />
-                <ScalarProperty Name="NateDate" ColumnName="NateDate" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-                <ScalarProperty Name="DataFinish" ColumnName="DataFinish" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Personal">
-            <EntityTypeMapping TypeName="BarberShopDBModel.Personal">
-              <MappingFragment StoreEntitySet="Personal">
-                <ScalarProperty Name="PersonalPhoto" ColumnName="PersonalPhoto" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="idPersonal" ColumnName="idPersonal" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="EMail" ColumnName="EMail" />
-                <ScalarProperty Name="idFKPost" ColumnName="idFKPost" />
-                <ScalarProperty Name="idWorkTime" ColumnName="idWorkTime" />
-                <ScalarProperty Name="PersonalLogin" ColumnName="PersonalLogin" />
-                <ScalarProperty Name="PersonalPassword" ColumnName="PersonalPassword" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Post">
-            <EntityTypeMapping TypeName="BarberShopDBModel.Post">
-              <MappingFragment StoreEntitySet="Post">
-                <ScalarProperty Name="idPost" ColumnName="idPost" />
-                <ScalarProperty Name="PostName" ColumnName="PostName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Service">
-            <EntityTypeMapping TypeName="BarberShopDBModel.Service">
-              <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="idService" ColumnName="idService" />
-                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Storage">
-            <EntityTypeMapping TypeName="BarberShopDBModel.Storage">
-              <MappingFragment StoreEntitySet="Storage">
-                <ScalarProperty Name="idStorage" ColumnName="idStorage" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BarberShopDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WorkTime">
-            <EntityTypeMapping TypeName="BarberShopDBModel.WorkTime">
-              <MappingFragment StoreEntitySet="WorkTime">
-                <ScalarProperty Name="idWorkTime" ColumnName="idWorkTime" />
-                <ScalarProperty Name="WorkTime1" ColumnName="WorkTime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище BarberShopDBModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище BarberShopDBModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище BarberShopDBModel.sp_dropdiagram" />
@@ -558,6 +469,98 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище BarberShopDBModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище BarberShopDBModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="BarberShopDBModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ClientPhoto" ColumnName="ClientPhoto" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="idClient" ColumnName="idClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="BarberShopDBModel.Notes">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="DataFinish" ColumnName="DataFinish" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="NateDate" ColumnName="NateDate" />
+                <ScalarProperty Name="idFKPersonal" ColumnName="idFKPersonal" />
+                <ScalarProperty Name="idFKClient" ColumnName="idFKClient" />
+                <ScalarProperty Name="idFKService" ColumnName="idFKService" />
+                <ScalarProperty Name="idNote" ColumnName="idNote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal">
+            <EntityTypeMapping TypeName="BarberShopDBModel.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="PersonalPhoto" ColumnName="PersonalPhoto" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="PersonalPassword" ColumnName="PersonalPassword" />
+                <ScalarProperty Name="PersonalLogin" ColumnName="PersonalLogin" />
+                <ScalarProperty Name="idWorkTime" ColumnName="idWorkTime" />
+                <ScalarProperty Name="idFKPost" ColumnName="idFKPost" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="idPersonal" ColumnName="idPersonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="BarberShopDBModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="idPost" ColumnName="idPost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="BarberShopDBModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="idService" ColumnName="idService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Storage">
+            <EntityTypeMapping TypeName="BarberShopDBModel.Storage">
+              <MappingFragment StoreEntitySet="Storage">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="idStorage" ColumnName="idStorage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BarberShopDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkTime">
+            <EntityTypeMapping TypeName="BarberShopDBModel.WorkTime">
+              <MappingFragment StoreEntitySet="WorkTime">
+                <ScalarProperty Name="WorkTime1" ColumnName="WorkTime" />
+                <ScalarProperty Name="idWorkTime" ColumnName="idWorkTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
