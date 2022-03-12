@@ -29,7 +29,7 @@
             </TextBlock.Effect>
         </TextBlock>
 
-        <!--Данные базы-->
+        <!--Данные базы (ШАБЛОН)--> 
         <ListView x:Name="lvClients" KeyUp="lvClients_KeyUp" MouseDoubleClick="lvClients_MouseDoubleClick"
                   Grid.Row="3" Background="#FFDBF3FF" Width="1000">
             <ListView.ItemsPanel>

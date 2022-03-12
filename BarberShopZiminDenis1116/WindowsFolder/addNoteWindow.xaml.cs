@@ -22,6 +22,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     {
         public addNoteWindow()
         {
+            //Заполнение комбобокса для записей
             InitializeComponent();
             cmbFKService.ItemsSource = ClassHelperFolder.AppData.context.Service.ToList();
             cmbFKService.DisplayMemberPath = "ServiceName";

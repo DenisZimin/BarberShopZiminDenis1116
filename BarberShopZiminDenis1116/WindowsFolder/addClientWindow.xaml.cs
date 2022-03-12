@@ -23,9 +23,11 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     /// </summary>
     public partial class addClientWindow : Window
     {
-
+        //Присоединение к базе
         EFDataBaseFolder.Client editClient = new EFDataBaseFolder.Client();
+        //Переменная для фото
         private string pathPhoto = null;
+        //Переменная для изменения
         bool isEdit = true;
 
         public addClientWindow()
@@ -46,6 +48,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             tbADDEDITCLIENT.Text = "Изменение данных";
             btnAddClient.Content = "Изменить";
 
+            //СЧИТЫВАНИЕ ФОТО
             if (client.ClientPhoto != null)
             {
                 using (MemoryStream stream = new MemoryStream(client.ClientPhoto))
@@ -120,21 +123,24 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                 {
                     if (isEdit)
                     {
+                        //РЕДАКТИРОВАНИЕ КЛИЕНТА
                         editClient.LastName = tbLastNameClient.Text;
                         editClient.FirstName = tbFirstNameClient.Text;
                         editClient.MiddleName = tbMiddleNameClient.Text;
                         editClient.PhoneNumber = tbPhoneClient.Text;
                         editClient.EMail = tbEmailClient.Text;
+                        //ИЗМЕНЕНИЕ ФОТО
                         if (pathPhoto != null)
                         {
                             editClient.ClientPhoto = File.ReadAllBytes(pathPhoto);
                         }
-                        ClassHelperFolder.AppData.context.SaveChanges();
+                        ClassHelperFolder.AppData.context.SaveChanges(); //Сохранение в базу
                         MessageBox.Show("Клиент изменен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                     else
                     {
+                        //ДОБАВЛЕНИЕ КЛИЕНТА
                         EFDataBaseFolder.Client addClient = new EFDataBaseFolder.Client();
                         addClient.LastName = tbLastNameClient.Text;
                         addClient.FirstName = tbFirstNameClient.Text;
@@ -142,12 +148,13 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addClient.PhoneNumber = tbPhoneClient.Text;
                         addClient.EMail = tbEmailClient.Text;
                         addClient.IsDeleted = false;
+                        //ДОБАВЛЕНИЕ ФОТО
                         if (pathPhoto != null)
                         {
                             editClient.ClientPhoto = File.ReadAllBytes(pathPhoto);
                         }
-                        ClassHelperFolder.AppData.context.Client.Add(addClient);
-                        ClassHelperFolder.AppData.context.SaveChanges();
+                        ClassHelperFolder.AppData.context.Client.Add(addClient); //Добавление
+                        ClassHelperFolder.AppData.context.SaveChanges(); //Сохранение в базу
                         MessageBox.Show("Клиент добавлен", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }                  
@@ -164,6 +171,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
 
         }
 
+        //Ограничение на ввод символов в поле "телефон"
         private void tbPhoneClient_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
@@ -184,6 +192,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             this.Close();
         }
 
+        //ОБРАБОТКА ФОТО
         private void btnChangePhotoCLIENT_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();

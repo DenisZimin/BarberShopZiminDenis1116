@@ -24,13 +24,16 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     /// </summary>
     public partial class addPersonalWindow : Window
     {
-
+        //Присоединение к базе
         EFDataBaseFolder.Personal editPersonal = new EFDataBaseFolder.Personal();
+        //Переменная для фото
         private string pathPhoto = null;
+        //Переменная для изменения
         bool isEdit = true;
 
         public addPersonalWindow()
         {
+            //Заполнение комбобкса
             InitializeComponent();
             cmbPostPerson.ItemsSource = ClassHelperFolder.AppData.context.Post.ToList();
             cmbPostPerson.DisplayMemberPath = "PostName";
@@ -65,6 +68,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             tbADDEDITPersonal.Text = "Изменение данных";
             btnAddPersonal.Content = "Изменить";
 
+            //СЧИТЫВАНИЕ ФОТО
             if (personal.PersonalPhoto != null)
             {
                 using (MemoryStream stream = new MemoryStream(personal.PersonalPhoto))
@@ -173,7 +177,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                 {
                     if (isEdit)
                     {
-                        EFDataBaseFolder.Personal addPersonal = new EFDataBaseFolder.Personal();
+                    //РЕДАКТИРОВАНИЕ ПЕРСОНАЛА
+                    EFDataBaseFolder.Personal addPersonal = new EFDataBaseFolder.Personal();
                         editPersonal.LastName = tbLastNamePersonal.Text;
                         editPersonal.FirstName = tbFirstNamePersonal.Text;
                         editPersonal.MiddleName = tbMiddleNamePersonal.Text;
@@ -183,7 +188,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         editPersonal.EMail = tbEmailPersonal.Text;
                         editPersonal.PersonalLogin = tbLoginPersonal.Text;
                         editPersonal.PersonalPassword = tbPassPersonal.Text;
-                        if (pathPhoto != null)
+                    //ИЗМЕНЕНИЕ ФОТО
+                    if (pathPhoto != null)
                         {
                             editPersonal.PersonalPhoto = File.ReadAllBytes(pathPhoto);
                         }
@@ -204,6 +210,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
                         addPersonal.PersonalLogin = tbLoginPersonal.Text;
                         addPersonal.PersonalPassword = tbPassPersonal.Text;
                         addPersonal.IsDeleted = false;
+                    //ДОБАВЛЕНИЕ ФОТО
                     if (pathPhoto != null)
                     {
                         addPersonal.PersonalPhoto = File.ReadAllBytes(pathPhoto);
@@ -240,6 +247,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             this.Close();
         }
 
+
+        //ОБРАБОТКА ФОТО
         private void btnChangePhoto_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
