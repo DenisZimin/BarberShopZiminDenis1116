@@ -1,0 +1,8 @@
+ALTER TABLE client DISABLE TRIGGER ClientDelete
+
+ALTER TABLE personal DISABLE TRIGGER PersonalDelete
+
+
+ALTER TABLE client ENABLE TRIGGER ClientDelete
+
+ALTER TABLE personal ENABLE TRIGGER PersonalDelete
