@@ -35,7 +35,7 @@
                   Grid.Row="3"
                   KeyUp="lvPerson_KeyUp"
                   MouseDoubleClick="lvPerson_MouseDoubleClick"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#FFDBF3FF">
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#FFDBF3FF" Margin="6,16,-7,5" Grid.RowSpan="2">
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel/>
@@ -75,7 +75,7 @@
                             <Image.Source>
                                 <Binding Path="PersonalPhoto">
                                     <Binding.TargetNullValue>
-                                            <ImageSource>C:\Users\IMac1\source\repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\ResoursesFolder\NoPhoto.png</ImageSource>
+                                            <ImageSource>C:\Users\IMac1\Source\Repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\ResoursesFolder\pardon.gif</ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>

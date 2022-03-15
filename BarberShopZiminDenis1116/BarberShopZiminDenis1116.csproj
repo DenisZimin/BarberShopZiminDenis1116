@@ -273,6 +273,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResoursesFolder\18.gif" />
+    <Resource Include="ResoursesFolder\crazy.gif" />
+    <Resource Include="ResoursesFolder\pardon.gif" />
+    <Resource Include="ResoursesFolder\eek2.gif" />
     <Resource Include="ResoursesFolder\Man.png" />
     <Resource Include="ResoursesFolder\NoPhoto.png" />
     <Resource Include="ResoursesFolder\Woman.png" />
