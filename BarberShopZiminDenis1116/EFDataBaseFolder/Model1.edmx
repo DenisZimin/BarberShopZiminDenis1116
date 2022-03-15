@@ -47,6 +47,8 @@
           <Property Name="PersonalPassword" Type="nvarchar" MaxLength="100" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="PersonalPhoto" Type="varbinary(max)" />
+          <Property Name="Pay" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Coeff" Type="float" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -273,7 +275,7 @@
             <End Role="WorkTime" EntitySet="WorkTime" />
             <End Role="Personal" EntitySet="Personal" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -296,8 +298,8 @@
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" />
-          <NavigationProperty Name="Notes" Relationship="BarberShopDBModel.FK_Notes_Client" FromRole="Client" ToRole="Notes" />
           <Property Name="ClientPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Notes" Relationship="BarberShopDBModel.FK_Notes_Client" FromRole="Client" ToRole="Notes" />
         </EntityType>
         <EntityType Name="Notes">
           <Key>
@@ -331,6 +333,8 @@
           <Property Name="PersonalPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="PersonalPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Pay" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Coeff" Type="Double" />
           <NavigationProperty Name="Notes" Relationship="BarberShopDBModel.FK_Notes_Personal" FromRole="Personal" ToRole="Notes" />
           <NavigationProperty Name="Post" Relationship="BarberShopDBModel.FK_Personal_Post" FromRole="Personal" ToRole="Post" />
           <NavigationProperty Name="WorkTime" Relationship="BarberShopDBModel.FK_Personal_WorkTime" FromRole="Personal" ToRole="WorkTime" />
@@ -439,7 +443,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -500,6 +504,8 @@
           <EntitySetMapping Name="Personal">
             <EntityTypeMapping TypeName="BarberShopDBModel.Personal">
               <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="Coeff" ColumnName="Coeff" />
+                <ScalarProperty Name="Pay" ColumnName="Pay" />
                 <ScalarProperty Name="PersonalPhoto" ColumnName="PersonalPhoto" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="PersonalPassword" ColumnName="PersonalPassword" />
@@ -561,7 +567,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
