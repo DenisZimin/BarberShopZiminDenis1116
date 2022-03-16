@@ -122,6 +122,9 @@
     <Compile Include="WindowsFolder\OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsFolder\PayDayWindow.xaml.cs">
+      <DependentUpon>PayDayWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsFolder\PersonWindow.xaml.cs">
       <DependentUpon>PersonWindow.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="WindowsFolder\OrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsFolder\PayDayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

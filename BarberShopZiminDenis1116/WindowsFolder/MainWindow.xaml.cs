@@ -61,5 +61,12 @@ namespace BarberShopZiminDenis1116
             this.Show();
         }
 
+        private void btnPayDay_Click(object sender, RoutedEventArgs e)
+        {
+            PayDayWindow payDayWindow = new PayDayWindow();
+            this.Hide();
+            payDayWindow.ShowDialog();
+            this.Show();
+        }
     }
 }
