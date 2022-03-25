@@ -45,7 +45,7 @@
             <DataTemplate>
                 <Border BorderBrush="DarkGray"
                 BorderThickness="2"
-                CornerRadius="10"
+                CornerRadius="5"
                 Width="945"
                 Height="130"
                 Margin="5">

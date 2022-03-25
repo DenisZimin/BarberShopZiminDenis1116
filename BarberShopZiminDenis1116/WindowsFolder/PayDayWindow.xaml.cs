@@ -19,6 +19,7 @@ namespace BarberShopZiminDenis1116.WindowsFolder
     /// </summary>
     public partial class PayDayWindow : Window
     {
+      
         List<EFDataBaseFolder.Personal> listPersons = new List<EFDataBaseFolder.Personal>();
 
         public PayDayWindow()
@@ -30,6 +31,5 @@ namespace BarberShopZiminDenis1116.WindowsFolder
         {
             this.Close();
         }
-
     }
 }

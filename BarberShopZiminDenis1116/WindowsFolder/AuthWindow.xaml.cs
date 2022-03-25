@@ -40,9 +40,11 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             }
             else
             {
-                MessageBox.Show("Пользователь не найден!", "Ошибка логина");
+                MessageBox.Show("Пользователь не найден!", "Ошибка авторизации");
             }
         }
+
+
 
         private void BtnEXIT_Click(object sender, RoutedEventArgs e)
         {
