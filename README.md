@@ -1,2 +1,2 @@
-# BarberShopZiminDenis1116
-BarberShopZiminDenis1116
+Разработка проекта "BarberShop@
+Работу выполняли ученики группы 2ИСП11-16 - Зимин Денис и Логуа Александр.
