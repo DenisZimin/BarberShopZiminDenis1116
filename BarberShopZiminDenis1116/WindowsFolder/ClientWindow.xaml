@@ -67,7 +67,7 @@
                                 <Image.Source>
                                     <Binding Path="ClientPhoto">
                                         <Binding.TargetNullValue>
-                                            <ImageSource>C:\Users\IMac1\source\repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\ResoursesFolder\NoPhoto.png</ImageSource>
+                                            <ImageSource>/ResoursesFolder/NoPhoto.png</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
@@ -98,7 +98,7 @@
                            Margin="0 0 6 0"
                            FontSize="15"/>
 
-                            <TextBlock Text="Зарплата:"
+                            <TextBlock Text="Телефон:"
                            Grid.Column="1"
                            Grid.Row="3"
                            VerticalAlignment="Center"
@@ -106,7 +106,7 @@
                            Margin="0 0 6 0"
                            FontSize="15"/>
 
-                            <TextBlock Text="Коэффициент:"
+                            <TextBlock Text="Удален:"
                            Grid.Column="1"
                            Grid.Row="4"
                            VerticalAlignment="Center"
@@ -132,7 +132,7 @@
                            Margin="0 0 10 0"
                            FontSize="15"/>
 
-                            <TextBlock Text="{Binding Path = PhoneNumber}"
+                            <TextBlock Text="{Binding Path = MiddleName}"
                            Grid.Column="2"
                            Grid.Row="2"
                            VerticalAlignment="Center"
@@ -140,7 +140,7 @@
                            Margin="0 0 10 0"
                            FontSize="15"/>
 
-                            <TextBlock Text="{Binding Path = EMail}"
+                            <TextBlock Text="{Binding Path = PhoneNumber}"
                            Grid.Column="2"
                            Grid.Row="3"
                            VerticalAlignment="Center"

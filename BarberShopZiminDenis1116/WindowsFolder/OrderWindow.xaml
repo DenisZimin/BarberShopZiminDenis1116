@@ -36,14 +36,19 @@
                   Grid.Row="3" KeyUp="lvOrders_KeyUp" Width="1020">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding idNote}"/>
-                    <GridViewColumn Header="Услуга" Width="150" DisplayMemberBinding="{Binding Service.ServiceName}"/>
-                    <GridViewColumn Header="Клиент" Width="80" DisplayMemberBinding="{Binding Client.FirstName}"/>
-                    <GridViewColumn Header="Сотрудник" Width="80" DisplayMemberBinding="{Binding Personal.FirstName}"/>
-                    <GridViewColumn Header="Дата регистрации" Width="200" DisplayMemberBinding="{Binding NateDate}"/>
-                    <GridViewColumn Header="Уточнение" Width="150" DisplayMemberBinding="{Binding Comment}"/>
-                    <GridViewColumn Header="Дата оказания услуги" Width="150" DisplayMemberBinding="{Binding DateStart}"/>
-                    <GridViewColumn Header="Дата завершения услуги" Width="150" DisplayMemberBinding="{Binding DataFinish}"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idNote}"/>
+                    <GridViewColumn Header="Услуга" DisplayMemberBinding="{Binding Service.ServiceName}"/>
+                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding Empty}"/>
+                    <GridViewColumn Header="Фамилия клиента" DisplayMemberBinding="{Binding Client.LastName}"/>
+                    <GridViewColumn Header="Имя клиента" DisplayMemberBinding="{Binding Client.FirstName}"/>
+                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding Empty}"/>
+                    <GridViewColumn Header="Фамилия сотрудника" DisplayMemberBinding="{Binding Personal.LastName}"/>
+                    <GridViewColumn Header="Имя сотрудника" DisplayMemberBinding="{Binding Personal.FirstName}"/>
+                    <GridViewColumn Header="" Width="40" DisplayMemberBinding="{Binding Empty}"/>
+                    <GridViewColumn Header="Дата регистрации" DisplayMemberBinding="{Binding NateDate}"/>
+                    <GridViewColumn Header="Уточнение" DisplayMemberBinding="{Binding Comment}"/>
+                    <GridViewColumn Header="Дата оказания услуги" DisplayMemberBinding="{Binding DateStart}"/>
+                    <GridViewColumn Header="Дата завершения услуги" DisplayMemberBinding="{Binding DataFinish}"/>
                 </GridView>
             </ListView.View>
         </ListView>

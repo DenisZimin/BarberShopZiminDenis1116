@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="53133d5d13304b6985ee2dd4fc1ed88a" Name="Diagram1">
-        <EntityTypeShape EntityType="BarberShopDBModel.Client" Width="1.5" PointX="3" PointY="10.625" />
+      <Diagram DiagramId="53133d5d13304b6985ee2dd4fc1ed88a" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="BarberShopDBModel.Client" Width="1.5" PointX="3" PointY="8" />
         <EntityTypeShape EntityType="BarberShopDBModel.Notes" Width="1.5" PointX="5.25" PointY="3" />
         <EntityTypeShape EntityType="BarberShopDBModel.Personal" Width="1.5" PointX="3" PointY="2.375" />
-        <EntityTypeShape EntityType="BarberShopDBModel.Post" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BarberShopDBModel.Service" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="BarberShopDBModel.Post" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BarberShopDBModel.Service" Width="1.5" PointX="3" PointY="11.5" />
         <EntityTypeShape EntityType="BarberShopDBModel.Storage" Width="1.5" PointX="5.75" PointY="7.125" />
         <EntityTypeShape EntityType="BarberShopDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.125" />
-        <EntityTypeShape EntityType="BarberShopDBModel.WorkTime" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BarberShopDBModel.WorkTime" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="BarberShopDBModel.FK_Notes_Client" />
         <AssociationConnector Association="BarberShopDBModel.FK_Notes_Personal" />
         <AssociationConnector Association="BarberShopDBModel.FK_Notes_Service" />

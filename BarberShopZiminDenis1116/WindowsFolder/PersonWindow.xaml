@@ -75,7 +75,7 @@
                             <Image.Source>
                                 <Binding Path="PersonalPhoto">
                                     <Binding.TargetNullValue>
-                                            <ImageSource>C:\Users\IMac1\Source\Repos\BarberShopZiminDenis1116\BarberShopZiminDenis1116\ResoursesFolder\pardon.gif</ImageSource>
+                                            <ImageSource>/ResoursesFolder/NoPhoto.png</ImageSource>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>

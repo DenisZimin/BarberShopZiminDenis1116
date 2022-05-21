@@ -68,8 +68,8 @@ namespace BarberShopZiminDenis1116.WindowsFolder
             var resClick = MessageBox.Show("Вы уверены, что хотите добавить запись?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 EFDataBaseFolder.Notes addNotes = new EFDataBaseFolder.Notes();
                 addNotes.idFKService = cmbFKService.SelectedIndex + 1;
-                addNotes.idFKClient = cmbFKClient.SelectedIndex + 103;
-                addNotes.idFKPersonal = cmbFKPeronal.SelectedIndex + 104;
+                addNotes.idFKClient = cmbFKClient.SelectedIndex + 1;
+                addNotes.idFKPersonal = cmbFKPeronal.SelectedIndex + 1;
                 addNotes.NateDate = tbDateRegister.Text;
                 addNotes.Comment = tbComment.Text;
                 addNotes.DateStart = tbStartDate.Text;
